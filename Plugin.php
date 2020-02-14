@@ -41,6 +41,7 @@ class Plugin extends PluginBase
         return [
             'tag' => [$this, 'tagListColumn'],
             'dot' => [$this, 'dotListColumn'],
+            'url' => [$this, 'urlListColumn'],
         ];
     }
 
@@ -59,6 +60,11 @@ class Plugin extends PluginBase
             return '<i class="fas fa-dot-circle" style="color: lime;"></i>';
         else
             return '<i class="fas fa-dot-circle"></i>';
+    }
+
+    public function urlListColumn($value, $column, $record)
+    {
+        return '<a href="'.$value.'" target="_blank" rel="noopener noreferrer">'.$value.'</a>';
     }
 
 }
